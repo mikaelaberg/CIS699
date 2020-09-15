@@ -10,17 +10,17 @@ acceptable; that is, if a single integer is sent, it produces a vector of that
 dimension with all zeros, but if a sequence of numbers is provided, it produces
 a vector with coordinates based on that sequence.'''
 
-
 class Vector:
     '''Represent a vector in a multidimensional space.'''
 
-    
-    
-    
-    def __init__(self, d):
-        '''Create d-dimensional vector of zeros.'''
-        self. coords = [0] * d
-
+    def __init__(self, coords):
+        self._coords = coords
+        if isinstance(coords,list):
+            for i in range(len(coords)):
+                self._coords[i] = coords[i]
+        elif isinstance(coords,int):
+            self._coords = [0] * coords
+       
     def __len__ (self):
         '''Return the dimension of the vector.'''
         return len(self._coords)
@@ -46,10 +46,18 @@ class Vector:
         '''Return True if vector has same coordinates as other.'''
         return self._coords == other._coords
 
-    def ne (self, other):
+    def __ne__ (self, other):
         '''Return True if vector differs from other.'''
         return not self == other # rely on existing _eq_ definition
 
-    def str (self):
+    def __str__ (self):
         '''Produce string representation of vector.'''
-        return '<' + str(self._coords)[1:−1] + '>' # adapt list representation
+        return '<' + str(self._coords)[1:-1] + '>' # adapt list representation
+
+
+ini_list1 = Vector([1, 2, 3, 4, 5])
+print(ini_list1.__str__())
+
+ini_list2 = Vector(5)
+print(ini_list2.__str__())
+
