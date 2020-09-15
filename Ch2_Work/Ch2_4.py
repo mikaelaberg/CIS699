@@ -7,9 +7,18 @@ of each type.'''
 
 class Flower:
     
-    def __init__(name, petal, price):
+    def __init__(self, name, petal, priceper, numof):
         self.name = name
         self.petal = petal
-        self.price = price
+        self.priceper = priceper
 
-    
+    # def sellingCost(self):
+    #     return ('{}' '{}'.format((self.priceper) * (self.numof)))
+
+flw_1 = Flower('Rose', 5, 5.50)
+flw_2 = Flower('Tulip', 3, 2.50)
+
+# print(flw_1)
+# print(flw_2)
+
+# print(flw_1.sellingCost())
