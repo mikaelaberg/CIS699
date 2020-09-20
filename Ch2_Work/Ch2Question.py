@@ -92,13 +92,13 @@ a vector with coordinates based on that sequence.'''
     # • Class Equestrian extends Horse, adding an instance variable weight
     # and methods trot( ) and is trained( ).
 
-# R-2.18 Give a short fragment of Python code that uses the progression classes
-# from Section 2.4.2 to find the 8th value of a Fibonacci progression that
-# starts with 2 and 2 as its first two values.
+''' R-2.18 Give a short fragment of Python code that uses the progression classes
+from Section 2.4.2 to find the 8th value of a Fibonacci progression that
+starts with 2 and 2 as its first two values.
 
-# R-2.19 When using the ArithmeticProgression class of Section 2.4.2 with an increment
-# of 128 and a start of 0, how many calls to next can we make
-# before we reach an integer of 263 or larger?
+R-2.19 When using the ArithmeticProgression class of Section 2.4.2 with an increment
+of 128 and a start of 0, how many calls to next can we make
+before we reach an integer of 263 or larger?'''
 
 # R-2.20 What are some potential efficiency disadvantages of having very deep inheritance
 # trees, that is, a large set of classes, A, B, C, and so on, such that
