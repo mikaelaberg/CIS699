@@ -174,6 +174,7 @@ before we reach an integer of 263 or larger?'''
 
 # P-2.33 Write a Python program that inputs a polynomial in standard algebraic
 # notation and outputs the first derivative of that polynomial.
+
 # P-2.34 Write a Python program that inputs a document and then outputs a barchart
 # plot of the frequencies of each alphabet character that appears in
 # that document.
@@ -184,28 +185,32 @@ before we reach an integer of 263 or larger?'''
 # has any packets to send, and if so, it delivers them to Bob’s computer, and
 # Bob is periodically checking if his computer has a packet from Alice, and,
 # if so, he reads and deletes it.
-# P-2.36 Write a Python program to simulate an ecosystem containing two types
-# of creatures, bears and fish. The ecosystem consists of a river, which is
-# modeled as a relatively large list. Each element of the list should be a
-# Bear object, a Fish object, or None. In each time step, based on a random
-# process, each animal either attempts to move into an adjacent list location
-# or stay where it is. If two animals of the same type are about to collide in
-# the same cell, then they stay where they are, but they create a new instance
-# of that type of animal, which is placed in a random empty (i.e., previously
-# None) location in the list. If a bear and a fish collide, however, then the
-# fish dies (i.e., it disappears).
+
+"""P-2.36 Write a Python program to simulate an ecosystem containing two types
+of creatures, bears and fish. The ecosystem consists of a river, which is
+modeled as a relatively large list. Each element of the list should be a
+Bear object, a Fish object, or None. In each time step, based on a random
+process, each animal either attempts to move into an adjacent list location
+or stay where it is. If two animals of the same type are about to collide in
+the same cell, then they stay where they are, but they create a new instance
+of that type of animal, which is placed in a random empty (i.e., previously
+None) location in the list. If a bear and a fish collide, however, then the
+fish dies (i.e., it disappears)."""
+
 # P-2.37 Write a simulator, as in the previous project, but add a Boolean gender
 # field and a floating-point strength field to each animal, using an Animal
 # class as a base class. If two animals of the same type try to collide, then
 # they only create a new instance of that type of animal if they are of different
 # genders. Otherwise, if two animals of the same type and gender try to
 # collide, then only the one of larger strength survives.
+
 # P-2.38 Write a Python program that simulates a system that supports the functions
 # of an e-book reader. You should include methods for users of your
 # system to “buy” new books, view their list of purchased books, and read
 # their purchased books. Your system should use actual books, which have
 # expired copyrights and are available on the Internet, to populate your set
 # of available books for users of your system to “purchase” and read.
+
 # P-2.39 Develop an inheritance hierarchy based upon a Polygon class that has
 # abstract methods area( ) and perimeter( ). Implement classes Triangle,
 # Quadrilateral, Pentagon, Hexagon, and Octagon that extend this base
