@@ -9,6 +9,18 @@ of that type of animal, which is placed in a random empty (i.e., previously
 None) location in the list. If a bear and a fish collide, however, then the
 fish dies (i.e., it disappears)."""
 
+
+#Possible modifications I want to make: 
+#1. Put into a text file for easier visualiztion?? 
+#2. And/Or maybe make it a button of some sorts??
+
+
+#Current Issues:
+#the variables are there but what is showing up 
+#is their location not the actualy contents 
+
+
+
 import random
 import numpy as np
 
