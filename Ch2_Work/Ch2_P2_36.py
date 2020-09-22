@@ -8,17 +8,17 @@ the same cell, then they stay where they are, but they create a new instance
 of that type of animal, which is placed in a random empty (i.e., previously
 None) location in the list. If a bear and a fish collide, however, then the
 fish dies (i.e., it disappears)."""
+
 import random
 import numpy as np
-from abc import ABCMeta, abstractmethod
 
-class animal(metaclass=ABCMeta):
+class animal():
 
     def __init__(self, place):
         self.place = place      #an animals place in the food chain
 
     def moveAnimal(self):
-         return self.place
+        return self.place
 
 class bear(animal):
 
@@ -83,6 +83,7 @@ class river:
                     raise ValueError("Undefined Creature")
             if text:
                 self.display()
+
     def display(self):
         print('===================')
         print('Ecosystem status: \n')
