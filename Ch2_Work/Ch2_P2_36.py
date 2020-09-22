@@ -18,6 +18,24 @@ fish dies (i.e., it disappears)."""
 #Current Issues:
 #the variables are there but what is showing up 
 #is their location not the actualy contents 
+#maybe missing () somewhere in the long list of else statments??
+
+
+#in the time step every object should move to an adjacent place in 
+# in the list, longer list 
+
+# crude animation; print one loop thorugh the list ; could also be a debugger
+# make this 2d could make this like a game of life, where I walk though every 
+# cell, or follow the animals
+# 
+# can the animal move mulitple times or just once, its unrealistic that they can only move once
+# every andimal gets a chance to move on the list. 
+# 
+# 
+# and dont forget about the ends of the list/box 
+# I can make the rules for the end of the box/beginging 
+# of the box 
+
 
 
 
@@ -64,7 +82,7 @@ class river:
         self.ecosys = []
         animal = np.random.choice ([bear, fish, None], size=self.space)
         for place, animal in enumerate(animal):
-            self.ecosys.append(animal(place) if animal is not None else None)
+            self.ecosys.append(animal(((place))) if animal is not None else None)
 
     def timeStep(self, t=1, text=True):
         for i in range(t):
@@ -102,8 +120,15 @@ class river:
         print(self.ecosys, '\n')
         print('===================')
 
-River = river(5)
-River.initalize()
-River.display
 
-River.timeStep(10)
+print(bear)
+print(fish)
+print(river)
+
+
+
+# River = river(5)
+# River.initalize()
+# River.display
+
+# River.timeStep(10)
