@@ -118,15 +118,24 @@ class river:
         print(self.ecosys, '\n')
         print('===================')
 
+# River = river(10)
+# River.initalize()
+# River.display
 
-# print(bear(3).place)
-# print(fish(5).place)
-# print(river(5))
+# River.timeStep(10)
 
 
 
-River = river(10)
-River.initalize()
-River.display
 
-River.timeStep(10)
+
+
+#testing iterating a loop and counting/add to count
+beings = ['bear', 'fish', 'none','bear', 'fish', 'bear','bear', 'fish', 'bear','bear', 'fish', 'none','bear', 'bear', 'none','fish', 'fish', 'none','bear', 'fish', 'fish','bear', 'fish' ]
+
+
+
+print(beings.count('fish'))
+
+print(beings.count('bear'))
+
+#test iterating a loop and counting/add to count
