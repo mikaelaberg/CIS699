@@ -49,7 +49,7 @@ class animal():
 
 class bear(animal):
 
-    def __placeBear__(self):
+    def __repr__(self):
         return "Bear(%s)" % self.place
 
     def movement(self):
@@ -60,7 +60,7 @@ class bear(animal):
 
 class fish(animal):
 
-    def __placeFish__(self):
+    def __repr__(self):
         return "Fish(%s)" % self.place
 
     def movement(self):
@@ -119,14 +119,14 @@ class river:
         print('===================')
 
 
-print(bear(3))
-print(fish(5))
-print(river(5))
+# print(bear(3).place)
+# print(fish(5).place)
+# print(river(5))
 
 
 
-# River = river(5)
-# River.initalize()
-# River.display
+River = river(10)
+River.initalize()
+River.display
 
-# River.timeStep(10)
+River.timeStep(10)
