@@ -121,11 +121,11 @@ class river:
         # print((self.ecosys.count('bear')))
         print('===================')
 
-River = river(20)
+River = river(25)
 River.initalize()
 River.display
 
-River.timeStep(10)
+River.timeStep(50)
 
 
 #testing iterating a loop and counting/add to count
@@ -142,7 +142,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 np.random.seed(19680801)
-data = np.random.random((50, 50, 50))
+data = np.random.random((25, 25, 25))
 
 fig, ax = plt.subplots()
 
