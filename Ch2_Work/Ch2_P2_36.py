@@ -36,7 +36,7 @@ fish dies (i.e., it disappears)."""
 
 import random
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 
 class animal():
@@ -82,6 +82,7 @@ class river:
         for place, animal in enumerate(animal):
             self.ecosys.append(animal(place) if animal is not None else None)
 
+
     def timeStep(self, t=1, text=True):
         for i in range(t):
             move_place = np.random.choice(list(range(self.spot)))
@@ -116,26 +117,38 @@ class river:
         print('===================')
         print('Ecosystem status: \n')
         print(self.ecosys, '\n')
+        # print((self.ecosys.count('fish')))
+        # print((self.ecosys.count('bear')))
         print('===================')
 
-# River = river(10)
-# River.initalize()
-# River.display
+River = river(20)
+River.initalize()
+River.display
 
-# River.timeStep(10)
-
-
-
-
+River.timeStep(10)
 
 
 #testing iterating a loop and counting/add to count
-beings = ['bear', 'fish', 'none','bear', 'fish', 'bear','bear', 'fish', 'bear','bear', 'fish', 'none','bear', 'bear', 'none','fish', 'fish', 'none','bear', 'fish', 'fish','bear', 'fish' ]
+# beings = ['bear', 'fish', 'none','bear', 'fish', 'bear','bear', 'fish', 'bear','bear', 'fish', 'none','bear', 'bear', 'none','fish', 'fish', 'none','bear', 'fish', 'fish','bear', 'fish' ]
 
+# print((self.ecosys.count('bear')))
+# print((self.ecosys.count('fish')))
 
+## Testing graphing: 
 
-print(beings.count('fish'))
+#matplotlib pyplot animation from website
 
-print(beings.count('bear'))
+import matplotlib.pyplot as plt
+import numpy as np
 
-#test iterating a loop and counting/add to count
+np.random.seed(19680801)
+data = np.random.random((50, 50, 50))
+
+fig, ax = plt.subplots()
+
+for i in range(len(data)):
+    ax.cla()
+    ax.imshow(data[i])
+    ax.set_title("frame {}".format(i))
+    # Note that using time.sleep does *not* work here!
+    plt.pause(0.5)
