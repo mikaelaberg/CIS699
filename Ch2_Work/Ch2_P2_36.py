@@ -136,7 +136,7 @@ River.timeStep(10)
 
 ## Testing graphing: 
 
-#matplotlib pyplot animation from website
+#matplotlib pyplot animation from website https://matplotlib.org/gallery/animation/animation_demo.html#sphx-glr-gallery-animation-animation-demo-py
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -151,4 +151,5 @@ for i in range(len(data)):
     ax.imshow(data[i])
     ax.set_title("frame {}".format(i))
     # Note that using time.sleep does *not* work here!
-    plt.pause(0.5)
+    plt.pause(0.1)
+
