@@ -82,7 +82,6 @@ class river:
         for place, animal in enumerate(animal):
             self.ecosys.append(animal(place) if animal is not None else None)
 
-
     def timeStep(self, t=1, text=True):
         for i in range(t):
             move_place = np.random.choice(list(range(self.spot)))
@@ -113,6 +112,9 @@ class river:
             if text:
                 self.display()
 
+    # def __repr__(self):
+    #     return str(self)
+
     def display(self):
         print('===================')
         print('Ecosystem status: \n')
@@ -127,29 +129,35 @@ River.display
 
 River.timeStep(50)
 
-
-#testing iterating a loop and counting/add to count
-# beings = ['bear', 'fish', 'none','bear', 'fish', 'bear','bear', 'fish', 'bear','bear', 'fish', 'none','bear', 'bear', 'none','fish', 'fish', 'none','bear', 'fish', 'fish','bear', 'fish' ]
-
-# print((self.ecosys.count('bear')))
-# print((self.ecosys.count('fish')))
+# print(River.display())
+# print(list(range(len(River.initalize()))))
 
 ## Testing graphing: 
 
 #matplotlib pyplot animation from website https://matplotlib.org/gallery/animation/animation_demo.html#sphx-glr-gallery-animation-animation-demo-py
 
-import matplotlib.pyplot as plt
-import numpy as np
+# import numpy as np
+# import matplotlib.pyplot as plt
 
-np.random.seed(19680801)
-data = np.random.random((25, 25, 25))
 
-fig, ax = plt.subplots()
+# np.random.seed(19680801)
+# data = np.random.random((25, 25, 25))
 
-for i in range(len(data)):
-    ax.cla()
-    ax.imshow(data[i])
-    ax.set_title("frame {}".format(i))
-    # Note that using time.sleep does *not* work here!
-    plt.pause(0.1)
+# xdata, ydata = (list(range(len(River)))), []
 
+# fig, ax = plt.subplots()
+
+# ax.format_coord(xdata, ydata)
+
+# for i in range(len(data)):
+#     ax.cla()
+#     ax.imshow(data[i])
+#     ax.set_title("River Ecosystem Time Step {}".format(i))
+#     # Note that using time.sleep does *not* work here!
+#     plt.pause(0.5)
+
+# Graphing notes: 
+# What should happen instead is I should take the index number/value 
+# from the eco system list and then use that list length as the x and y 
+# value and then grpah the animeal at the location, the problem is 
+# HOW to do that :/ 
