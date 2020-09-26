@@ -10,21 +10,19 @@ None) location in the list. If a bear and a fish collide, however, then the
 fish dies (i.e., it disappears)."""
 
 #Current Issues:
-#the variables are there but what is showing up 
-#is their location not the actualy contents 
-#maybe missing () somewhere in the long list of else statments??
+# graphing still not complete 
+# animals are not moving in the list 
+# with each new timestep this needs to
+# be fixed bc then the graph wont really
+# move it would be sendentary. 
 
+# or insetead of a moving graph make it just a search able time setp....
+# which ever seems more realistic at this point
 
 # My Notes Fpr the Program:
 #
 # in the time step every object should move to an adjacent place in 
 # in the list, longer list 
-# 
-# 
-# crude animation; print one loop thorugh the list ; could also be a debugger
-# make this 2d could make this like a game of life, where I walk though every 
-# cell, or follow the animals
-# 
 # 
 # can the animal move mulitple times or just once, its unrealistic that they can only move once
 # every andimal gets a chance to move on the list. 
@@ -118,27 +116,43 @@ class river:
 
 
 
-    def graphEcosy(self):
+    def graphEcosy(self, pointInTime):
         # obtinain index for grpahing 
+
+        tempRiverEco = River.getecosys()
+
+        # obtaning the ecosystem list lenght to use for graphing
+        riverEcoLen = len(tempRiverEco)
+        
+        # loop through the list and obtain the animals and their indicies  
+        # for j in tempRiverEco:
+            # return tempRiverEco.index
+        for j in tempRiverEco:
+            pointInTime = timeStep 
+
+        # go through loop obtain animal and its index then plot it on a graph,
+        # do this for the whole list through one loop/timestep 
+
+
         # np.random.seed(19680801)
         # data = np.random.random((10, 10, 10))
 
-        data = [10,10,10]
-        # ydata = (list(range(len(River))))
+        # data = [10,10,10]
+        # # ydata = (list(range(len(River))))
 
-        fig, ax = plt.subplots(2,2)
+        # fig, ax = plt.subplots(2,2)
 
-        # ax.format_coord(xdata, ydata)
-
-
+        # # ax.format_coord(xdata, ydata)
 
 
-        for i in range(len(data)):
-            ax.cla()
-            ax.imshow(data[i])
-            ax.set_title("River Ecosystem Time Step {}".format(i))
-            # Note that using time.sleep does *not* work here!
-            plt.pause(0.5)
+
+
+        # for i in range(len(data)):
+        #     ax.cla()
+        #     ax.imshow(data[i])
+        #     ax.set_title("River Ecosystem Time Step {}".format(i))
+        #     # Note that using time.sleep does *not* work here!
+        #     plt.pause(0.5)
 
 
 
@@ -153,21 +167,16 @@ class river:
         # print((self.ecosys.count('bear')))
         print('===================')
 
-River = river(25)
+River = river(100)
 River.initalize()
 River.display
 
-River.timeStep(50)
+River.timeStep(10)
 
-tempRiverEco = River.getecosys()
-
-
-River.graphEcosy()
+# River.graphEcosy
 
 
 
-# print(River.display())
-# print(list(range(len(River.initalize()))))
 
 ## Testing graphing: 
 
@@ -198,3 +207,6 @@ River.graphEcosy()
 # from the eco system list and then use that list length as the x and y 
 # value and then grpah the animeal at the location, the problem is 
 # HOW to do that :/ 
+
+
+
