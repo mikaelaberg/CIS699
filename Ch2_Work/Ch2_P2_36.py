@@ -39,6 +39,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+
 class animal():
 
     def __init__(self, place):
@@ -82,6 +83,9 @@ class river:
         for place, animal in enumerate(animal):
             self.ecosys.append(animal(place) if animal is not None else None)
 
+    def getecosys(self):
+        return self.ecosys
+
     def timeStep(self, t=1, text=True):
         for i in range(t):
             move_place = np.random.choice(list(range(self.spot)))
@@ -112,8 +116,34 @@ class river:
             if text:
                 self.display()
 
-    # def __repr__(self):
-    #     return str(self)
+
+
+    def graphEcosy(self):
+        # obtinain index for grpahing 
+        # np.random.seed(19680801)
+        # data = np.random.random((10, 10, 10))
+
+        data = [10,10,10]
+        # ydata = (list(range(len(River))))
+
+        fig, ax = plt.subplots(2,2)
+
+        # ax.format_coord(xdata, ydata)
+
+
+
+
+        for i in range(len(data)):
+            ax.cla()
+            ax.imshow(data[i])
+            ax.set_title("River Ecosystem Time Step {}".format(i))
+            # Note that using time.sleep does *not* work here!
+            plt.pause(0.5)
+
+
+
+
+
 
     def display(self):
         print('===================')
@@ -129,6 +159,13 @@ River.display
 
 River.timeStep(50)
 
+tempRiverEco = River.getecosys()
+
+
+River.graphEcosy()
+
+
+
 # print(River.display())
 # print(list(range(len(River.initalize()))))
 
@@ -141,13 +178,13 @@ River.timeStep(50)
 
 
 # np.random.seed(19680801)
-# data = np.random.random((25, 25, 25))
+# data = np.random.random((10, 10, 10))
 
-# xdata, ydata = (list(range(len(River)))), []
+# # xdata, ydata = (list(range(len(River)))), []
 
 # fig, ax = plt.subplots()
 
-# ax.format_coord(xdata, ydata)
+# # ax.format_coord(xdata, ydata)
 
 # for i in range(len(data)):
 #     ax.cla()
