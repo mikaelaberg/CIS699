@@ -16,27 +16,24 @@ fish dies (i.e., it disappears)."""
 # be fixed bc then the graph wont really
 # move it would be sendentary. 
 
-# or insetead of a moving graph make it just a search able time setp....
-# which ever seems more realistic at this point
-
 # My Notes Fpr the Program:
-#
 # in the time step every object should move to an adjacent place in 
 # in the list, longer list 
-# 
+
 # can the animal move mulitple times or just once, its unrealistic that they can only move once
 # every andimal gets a chance to move on the list. 
-# 
-# 
+ 
 # and dont forget about the ends of the list/box 
 # I can make the rules for the end of the box/beginging 
 # of the box 
 
+
+
+
+
 import random
 import numpy as np
 import matplotlib.pyplot as plt
-
-
 
 class animal():
 
@@ -67,7 +64,6 @@ class fish(animal):
         new_place = self.place + step
         print(self, 'moves', 'left' if step == -1 else 'right')
         return new_place
-
 
 class river:
 
@@ -116,48 +112,27 @@ class river:
 
 
 
-    def graphEcosy(self, pointInTime):
-        # obtinain index for grpahing 
-
+    def graphEcosy(self):
+        eco = []
         tempRiverEco = River.getecosys()
-
-        # obtaning the ecosystem list lenght to use for graphing
-        riverEcoLen = len(tempRiverEco)
         
-        # loop through the list and obtain the animals and their indicies  
-        # for j in tempRiverEco:
-            # return tempRiverEco.index
-        for j in tempRiverEco:
-            pointInTime = timeStep 
+        for j in range(len(tempRiverEco)):
+            if isinstance(tempRiverEco[j], fish):
+                eco.append(0.3)
+            elif isinstance(tempRiverEco[j], bear):
+                eco.append(0.7)
+            else:
+                eco.append(0.0)    
+    
+        fig, ax = plt.subplots(1,1)
 
-        # go through loop obtain animal and its index then plot it on a graph,
-        # do this for the whole list through one loop/timestep 
+        # ax.format_coord(xdata, ydata)
 
-
-        # np.random.seed(19680801)
-        # data = np.random.random((10, 10, 10))
-
-        # data = [10,10,10]
-        # # ydata = (list(range(len(River))))
-
-        # fig, ax = plt.subplots(2,2)
-
-        # # ax.format_coord(xdata, ydata)
-
-
-
-
-        # for i in range(len(data)):
-        #     ax.cla()
-        #     ax.imshow(data[i])
-        #     ax.set_title("River Ecosystem Time Step {}".format(i))
-        #     # Note that using time.sleep does *not* work here!
-        #     plt.pause(0.5)
-
-
-
-
-
+        for i in range(len(eco)):
+            ax.cla()
+            ax.imshow(eco[i])
+            ax.set_title("River Ecosystem Time Step {}".format(i))
+            plt.pause(0.5)
 
     def display(self):
         print('===================')
@@ -171,42 +146,25 @@ River = river(100)
 River.initalize()
 River.display
 
-River.timeStep(10)
+River.timeStep(5)
 
-# River.graphEcosy
+River.graphEcosy()
 
 
 
 
 ## Testing graphing: 
-
 #matplotlib pyplot animation from website https://matplotlib.org/gallery/animation/animation_demo.html#sphx-glr-gallery-animation-animation-demo-py
-
 # import numpy as np
 # import matplotlib.pyplot as plt
-
-
 # np.random.seed(19680801)
 # data = np.random.random((10, 10, 10))
-
-# # xdata, ydata = (list(range(len(River)))), []
-
 # fig, ax = plt.subplots()
-
-# # ax.format_coord(xdata, ydata)
-
 # for i in range(len(data)):
 #     ax.cla()
 #     ax.imshow(data[i])
 #     ax.set_title("River Ecosystem Time Step {}".format(i))
 #     # Note that using time.sleep does *not* work here!
 #     plt.pause(0.5)
-
-# Graphing notes: 
-# What should happen instead is I should take the index number/value 
-# from the eco system list and then use that list length as the x and y 
-# value and then grpah the animeal at the location, the problem is 
-# HOW to do that :/ 
-
 
 
