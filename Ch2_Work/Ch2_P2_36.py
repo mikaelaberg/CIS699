@@ -10,7 +10,7 @@ None) location in the list. If a bear and a fish collide, however, then the
 fish dies (i.e., it disappears)."""
 
 #Current Issues:
-# TODO graphing still not complete 
+# TODO graphing still not complete - color switch
 # TODO "we need a bigger ecosystem"
 
 
@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 class animal():
 
     def __init__(self, place):
-        self.place = place      #place animal in the food chain
+        self.place = place
 
     def movement(self):
         step = random.choice([-1,1])
@@ -30,12 +30,19 @@ class animal():
 
 
 class bear(animal):
+    def __init__(self,place):
+        super().__init__(place)
+        self.color = 0.5
+
 
     def __repr__(self):
         return "Bear(%s)" % self.place
 
 
 class fish(animal):
+    def __init__(self, place):
+        super().__init__(place)
+        self.color = 0.7
 
     def __repr__(self):
         return "Fish(%s)" % self.place
@@ -46,13 +53,19 @@ class river:
     def __init__(self, spot):
         self.spot = spot
         ecosys = None
+        self.itterationCount = 0
 
-    def initalize(self):
+    def initalize(self, timestep):
         self.ecosys = []
         animal = random.choice ([bear, fish, None], size=self.spot)
         for place, animal in enumerate(animal):
             self.ecosys.append(animal(place) if animal is not None else None)
 
+        self.gdata = []
+        
+        for x in range((timestep)):
+            self.gdata.append([[]])
+        
     def getecosys(self):
         return self.ecosys
     
@@ -97,62 +110,45 @@ class river:
                     raise ValueError("Undefined Creature")
             if text:
                 self.display()
+         
+            self.gdata[self.itterationCount] = self.parsecosys()
+
+            self.itterationCount += 1
+         
+    def parsecosys(self):
+        result = []
+        for x in range(len(self.ecosys)):
+            if self.ecosys[x] is None:
+                result.append(0.0)
+            else:
+                result.append(self.ecosys[x].color)
+
+        return [result]
 
 
-
-    # def graphEcosy(self):
-    #     eco = []
-    #     tempRiverEco = River.getecosys()
-        
-    #     for j in range(len(tempRiverEco)):
-    #         if isinstance(tempRiverEco[j], fish):
-    #             eco.append(0.3)
-    #         elif isinstance(tempRiverEco[j], bear):
-    #             eco.append(0.7)
-    #         else:
-    #             eco.append(0.0)    
+    def graphEcosy(self):
+        eco = []
+        tempRiverEco = River.getecosys()
     
-    #     fig, ax = plt.subplots(1,1)
+        fig, ax = plt.subplots()
 
-    #     # ax.format_coord(xdata, ydata)
-
-    #     for i in range(len(eco)):
-    #         ax.cla()
-    #         ax.imshow(eco[i])
-    #         ax.set_title("River Ecosystem Time Step {}".format(i))
-    #         plt.pause(0.5)
+        for i in range(len(self.gdata)):
+            ax.cla()
+            ax.imshow(self.gdata[i], "cool")
+            ax.set_title("River Ecosystem Time Step {}".format(i))
+            plt.pause(0.5)
 
     def display(self):
         print('===================')
         print('Ecosystem status: \n')
         print(self.ecosys, '\n')
-        # print((self.ecosys.count('fish')))
-        # print((self.ecosys.count('bear')))
         print('===================')
 
-River = river(100)
-River.initalize()
+itterations = 50
+River = river(10)
+River.initalize(itterations)
 River.display()
 
-River.timeStep(100)
+River.timeStep(itterations)
 
-# River.graphEcosy()
-
-
-
-
-# ## Testing graphing: 
-# #matplotlib pyplot animation from website https://matplotlib.org/gallery/animation/animation_demo.html#sphx-glr-gallery-animation-animation-demo-py
-# import numpy as np
-# import matplotlib.pyplot as plt
-# np.random.seed(19680801)
-# data = np.random.random((10, 10, 10))
-# fig, ax = plt.subplots()
-# for i in range(len(data)):
-#     ax.cla()
-#     ax.imshow(data[i])
-#     ax.set_title("River Ecosystem Time Step {}".format(i))
-#     # Note that using time.sleep does *not* work here!
-#     plt.pause(0.5)
-
-
+River.graphEcosy()
