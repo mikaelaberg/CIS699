@@ -9,10 +9,13 @@ of that type of animal, which is placed in a random empty (i.e., previously
 None) location in the list. If a bear and a fish collide, however, then the
 fish dies (i.e., it disappears)."""
 
-#Current Issues:
-# TODO graphing still not complete - color switch
-# TODO "we need a bigger ecosystem"
-
+#Current Improvemnts:
+# TODO graphing; better labels/ key.
+# TODO code: "we need a bigger ecosystem", what 
+        # would happen when/if the ecosystem 
+        # is full of bears/Fish/None
+        # The above doesnt happen as long as 
+        # the list/ecosystem is large 
 
 from pylab import *
 import numpy.random as random
@@ -35,7 +38,6 @@ class bear(animal):
     def __init__(self,place):
         super().__init__(place)
         self.color = 0.5
-
 
     def __repr__(self):
         return "Bear(%s)" % self.place
@@ -124,9 +126,7 @@ class river:
                 result.append(0.0)
             else:
                 result.append(self.ecosys[x].color)
-
         return [result]
-
 
     def graphEcosy(self):
         fig, ax = plt.subplots()
@@ -150,7 +150,7 @@ class river:
         print(self.ecosys, '\n')
         print('===================')
 
-itterations = int(input("How many itearatios do we want o observe? "))
+itterations = int(input("How many itearatios do we want to observe? "))
 River = river(100)
 River.initalize(itterations)
 River.display()
