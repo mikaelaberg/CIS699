@@ -14,8 +14,10 @@ fish dies (i.e., it disappears)."""
 # TODO "we need a bigger ecosystem"
 
 
+from pylab import *
 import numpy.random as random
 import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 class animal():
 
@@ -127,16 +129,20 @@ class river:
 
 
     def graphEcosy(self):
-        eco = []
-        tempRiverEco = River.getecosys()
-    
         fig, ax = plt.subplots()
+
+        for x in range(len(self.gdata)):
+            cmap = cm.get_cmap('coolwarm',4)
+            im = ax.imshow(self.gdata[x], cmap = cmap)
+            divider = make_axes_locatable(ax)
+            cax = divider.append_axes("bottom", size="500%", pad=.5)
+            plt.colorbar(im, cax=cax, label = "Fish=0.7 Bear=0.5 \n None=0.0")
 
         for i in range(len(self.gdata)):
             ax.cla()
-            ax.imshow(self.gdata[i], "cool")
+            ax.imshow(self.gdata[i], 'coolwarm')
             ax.set_title("River Ecosystem Time Step {}".format(i))
-            plt.pause(0.5)
+            plt.pause(0.1)
 
     def display(self):
         print('===================')
@@ -144,11 +150,9 @@ class river:
         print(self.ecosys, '\n')
         print('===================')
 
-itterations = 50
-River = river(10)
+itterations = int(input("How many itearatios do we want o observe? "))
+River = river(100)
 River.initalize(itterations)
 River.display()
-
 River.timeStep(itterations)
-
 River.graphEcosy()
