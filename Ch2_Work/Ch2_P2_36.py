@@ -10,12 +10,25 @@ None) location in the list. If a bear and a fish collide, however, then the
 fish dies (i.e., it disappears)."""
 
 #Current Improvemnts:
-# TODO graphing; better labels/ key.
+
+# GW list:
+# TODO Fish and Bears coming back into the list/view point 
+        # Torrus --> have them reenter/re appear 
+        # (get.num function?) print at each timsetp each time the calss is called
+# TODO Track the number of bears/Fish in each timesetp and graph it 
+# TODO Cacualte/Predict/Print how long it would take till the populaiton 
+        # of fish (or bears?) reacches zero (connects to gonna need a bigger ecosystem)
+
+# MB List:
+# TODO graphing; better labels/ key. OR better graph 
 # TODO code: "we need a bigger ecosystem", what 
         # would happen when/if the ecosystem 
         # is full of bears/Fish/None
         # The above doesnt happen as long as 
         # the list/ecosystem is large 
+# TODO Reflection of this project at the end 
+# TODO Clean up/ Better documentaion 
+
 
 from pylab import *
 import numpy.random as random
