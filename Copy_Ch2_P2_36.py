@@ -41,6 +41,10 @@ class animal():
         self.place = place
 
     def movement(self):
+        """Moving the animal right or left one 
+        and a print statement staying what animal 
+        moved and in what direction"""
+
         step = random.choice([-1,1])
         new_place = self.place + step
         print(self, 'moves', 'left' if step == -1 else 'right')
@@ -73,37 +77,88 @@ class river:
         self.itterationCount = 0
 
     def initalize(self, timestep):
+        """Initalize river"""
+
         self.ecosys = []
         animal = random.choice ([bear, fish, None], size=self.spot)
         for place, animal in enumerate(animal):
             self.ecosys.append(animal(place) if animal is not None else None)
 
         self.gdata = []
-        
+        self.lftSideStore = []
+        self.rtSideStore = []
+
         for x in range((timestep)):
             self.gdata.append([[]])
         
     def getecosys(self):
+        """Getter for the ecosystem"""
+
         return self.ecosys
     
     def add_random(self, animal):
         """Add animal to empty cell of river list after mating occurs"""
+        
         if self.ecosys.count(None) > 0:
             choices = [i for i, x in enumerate(self.ecosys) if x is None]
             index = random.choice(choices)
             animal.place = index
             self.ecosys[index] = animal
 
+    def append_left(self):
+        """If the animal moves left out of the viewpoint of the list"""
+        if isinstance(self.ecosys[self.timeStep.move_place], bear):
+            if isinstance(self.ecosys[self.timeStep.new_spot], bear):
+                self.add_random(bear(0))
+            elif isinstance(self.ecosys[self.timeStep.new_spot], fish):
+                self.ecosys[new_spot] = bear(self.timeStep.new_spot)
+                self.ecosys[move_place] = None
+            else:
+                self.ecosys[new_spot] = bear(self.timeStep.new_spot)
+                self.ecosys[move_place] = None
+
+        elif isinstance(self.ecosys[self.timeStep.move_place], fish):
+            if isinstance(self.ecosys[self.timeStep.new_spot], fish):
+                self.add_random(fish(0))
+            elif isinstance(self.ecosys[self.timeStep.new_spot], bear):
+                self.ecosys[move_place] = None
+            else:
+                self.ecosys[new_spot] = fish(self.timeStep.new_spot)
+                self.ecosys[move_place] = None
+
+        else:
+            raise ValueError("Undefined Creature")
+
+        
+        
+        self.lftSideStore.append()
+        pass
+
+    def append_right(self):
+        """If the animal moves right out of the viewpoint of the list"""
+                         
+        self.rtSideStore.append()
+        pass
+
+
     def timeStep(self, t=1, text=True):
+        """A point in time what the ecosystem looks like"""
+
         for i in range(t):
             move_place = random.choice(list(range(self.spot)))
+
             if self.ecosys[move_place] is None:
                 print ('No movement')
                 pass
+
             else:
                 new_spot = self.ecosys[move_place].movement()
-                if new_spot < 0 or new_spot > len(self.ecosys) -1:
-                    self.ecosys[move_place] = None
+                if new_spot < 0:
+                    self.append_left
+
+                elif new_spot > len(self.ecosys) -1:
+                    self.append_right
+                   
                 elif isinstance(self.ecosys[move_place], bear):
                     if isinstance(self.ecosys[new_spot], bear):
                         self.add_random(bear(0))
@@ -122,8 +177,10 @@ class river:
                     else:
                         self.ecosys[new_spot] = fish(new_spot)
                         self.ecosys[move_place] = None
+
                 else:
                     raise ValueError("Undefined Creature")
+
             if text:
                 self.display()
          
@@ -132,6 +189,8 @@ class river:
             self.itterationCount += 1
          
     def parsecosys(self):
+        """Converting the animals to their associated colors for graphing"""
+
         result = []
         for x in range(len(self.ecosys)):
             if self.ecosys[x] is None:
@@ -141,6 +200,8 @@ class river:
         return [result]
 
     def graphEcosy(self):
+        """Graphing the ecosystem"""
+        
         fig, ax = plt.subplots()
 
         for x in range(len(self.gdata)):
@@ -157,12 +218,14 @@ class river:
             plt.pause(0.1)
 
     def display(self):
+        """Print statent for the ecosystem"""
+
         print('===================')
         print('Ecosystem status: \n')
         print(self.ecosys, '\n')
         print('===================')
 
-itterations = int(input("How many itearatios do we want to observe? "))
+itterations = 50
 River = river(100)
 River.initalize(itterations)
 River.display()
