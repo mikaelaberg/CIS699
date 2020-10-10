@@ -1,0 +1,51 @@
+Chapter 4
+
+Reinforcement Probelms
+R-4.2 Draw the recursion trace for the computation of power(2,5), using the
+traditional function implemented in Code Fragment 4.11.
+
+R-4.3 Draw the recursion trace for the computation of power(2,18), using the
+repeated squaring algorithm, as implemented in Code Fragment 4.12.
+
+R-4.4 Draw the recursion trace for the execution of function reverse(S, 0, 5)
+(Code Fragment 4.10) on S = [4, 3, 6, 2, 6].
+
+R-4.5 Draw the recursion trace for the execution of function PuzzleSolve(3,S,U)
+(Code Fragment 4.14), where S is empty and U = {a,b,c,d}.
+
+
+R-4.9 Write a short recursive Python function that finds the minimum and maximum
+values in a sequence without using any loops.
+
+
+Creativity Probelms
+C-4.15 Write a recursive function that will output all the subsets of a set of n
+elements (without repeating any subsets).
+
+C-4.16 Write a short recursive Python function that takes a character string s and
+outputs its reverse. For example, the reverse of pots&pans would be
+snap&stop .
+
+C-4.17 Write a short recursive Python function that determines if a string s is a
+palindrome, that is, it is equal to its reverse. For example, racecar and
+gohangasalamiimalasagnahog are palindromes.
+
+C-4.18 Use recursion to write a Python function for determining if a string s has
+more vowels than consonants.
+
+C-4.19 Write a short recursive Python function that rearranges a sequence of integer
+values so that all the even values appear before all the odd values.
+
+
+Projects: 
+P-4.26 Write a program that can solve instances of the Tower of Hanoi problem
+(from Exercise C-4.14).
+    C-4.14 In the Towers of Hanoi puzzle, we are given a platform with three pegs, a,
+    b, and c, sticking out of it. On peg a is a stack of n disks, each larger than
+    the next, so that the smallest is on the top and the largest is on the bottom.
+    The puzzle is to move all the disks from peg a to peg c, moving one disk
+    at a time, so that we never place a larger disk on top of a smaller one.
+    See Figure 4.15 for an example of the case n = 4. Describe a recursive
+    algorithm for solving the Towers of Hanoi puzzle for arbitrary n. (Hint:
+    Consider first the subproblem of moving all but the nth disk from peg a to
+    another peg using the third as “temporary storage.”)
