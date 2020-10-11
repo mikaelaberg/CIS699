@@ -26,7 +26,7 @@ C-4.16 Write a short recursive Python function that takes a character string s a
 outputs its reverse. For example, the reverse of pots&pans would be
 snap&stop .
 
-C-4.17 Write a short recursive Python function that determines if a string s is a
+DONE C-4.17 Write a short recursive Python function that determines if a string s is a
 palindrome, that is, it is equal to its reverse. For example, racecar and
 gohangasalamiimalasagnahog are palindromes.
 
