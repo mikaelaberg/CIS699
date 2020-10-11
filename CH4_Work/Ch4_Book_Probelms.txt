@@ -22,7 +22,7 @@ Creativity Probelms
 C-4.15 Write a recursive function that will output all the subsets of a set of n
 elements (without repeating any subsets).
 
-C-4.16 Write a short recursive Python function that takes a character string s and
+DONE C-4.16 Write a short recursive Python function that takes a character string s and
 outputs its reverse. For example, the reverse of pots&pans would be
 snap&stop .
 
@@ -30,7 +30,7 @@ DONE C-4.17 Write a short recursive Python function that determines if a string 
 palindrome, that is, it is equal to its reverse. For example, racecar and
 gohangasalamiimalasagnahog are palindromes.
 
-C-4.18 Use recursion to write a Python function for determining if a string s has
+DONE C-4.18 Use recursion to write a Python function for determining if a string s has
 more vowels than consonants.
 
 C-4.19 Write a short recursive Python function that rearranges a sequence of integer
