@@ -31,13 +31,13 @@ class Matrix:
 
     self._matrix = matrix
 
-  def lookup_score(self, a, b):
-    a = a.upper()
-    b = b.upper()
+    def lookup_score(self, a, b):
+        a = a.upper()
+        b = b.upper()
 
-    if a not in self._matrix or b not in self._matrix[a]:
-      raise InvalidPairException('[%s, %s]' % (a, b))
-    return self._matrix[a][b]
+        if a not in self._matrix or b not in self._matrix[a]:
+            raise InvalidPairException('[%s, %s]' % (a, b))
+        return self._matrix[a][b]
 
 
 def run_repl(matrix):
