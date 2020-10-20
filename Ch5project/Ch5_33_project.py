@@ -1,9 +1,15 @@
 """
-MB
+MB:
 TODO Would like to improve this by using files as well as make it work in
 the way I want it to work so that I understand the concepts better. Like
 maybe have a user input or pull from a file.
 DOCUMENTATION!
+
+GW:
+#TODO write utility programs to do test cases (data)
+# write small scripts that generate strings of intgers into af file and test against it
+# does this work with negative numbers, zeros, ect.
+
 """
 
 import operator
@@ -91,6 +97,8 @@ matrixA.dotProduct(matrixB)
 
 # print(matrixA * matrixB)    #Showing how the Assertion works for if the dimensions don't match
 
-
-
-
+""" Reflection:
+Completed this project last week and I honestly feel like I had BAD documentation with this one,
+because I honestly don't remember why I have some bits vs others. I also was never actually able
+to complete the file stuff I wanted to do.
+"""
