@@ -37,9 +37,15 @@ inputs a number and i push it on the stack (something that represents the
 undo function) instead of a number and I can put a letter or something, it
 doesn't have to be large maybe 5 elements large.
 -----------------------------------------------------------------------------
+
+--------------------------PART C DONE ---------------------------------------
+PART C: C-7.30 Exercise P-6.35 describes a LeakyStack abstraction. Implement that ADT
+using a singly linked list for storage.
+--------------------------PART C DONE ---------------------------------------
+
 """
 
-# Part A
+#--------------------------PART A --------------------------------------------
 class Empty(Exception):
     """
     Generating and initalizing the Empty class for the ArrayStack class.
@@ -108,40 +114,86 @@ class ArrayStack:
         return self._data.pop()     #remove last item from list
 
 
-# Part B
-class LeakyStack(ArrayStack):
+#--------------------------PART B --------------------------------------------
+# class LeakyStack(ArrayStack):
+#     """
+#     For the 'undo' when a new element is pushed into the stack when at
+#     max capacity it will leak out into the leaky stack.
+#     """
+#     def __init__(self, capacity = 20):
+#         self._data = [None]*capacity
+#         self._capacity = capacity
+#         self._front = 0
+#         self._size = 0
+
+#     def __len__(self):
+#         return self._size
+
+#     def isEmpty(self):
+#         return self._size == 0
+
+#     def push(self, value):
+#         self._data[(self._front + self._size)%len(self._data)] = value
+#         if self._size == self._capacity:
+#             self._front += 1
+#         else: self._size += 1
+
+#     def pop(self):
+#         if self.isEmpty():
+#             raise Empty('Stack is empty')
+#         ans = self._data[(self._front + self._size -1)%len(self._data)]
+#         self._data[(self._front + self._size -1)%len(self._data)] = None
+#         self._size -= 1
+#         return ans
+
+
+#--------------------------PART C --------------------------------------------
+
+class SinglyLinked_LeakyStack(ArrayStack):
     """
-    For the 'undo' when a new element is pushed into the stack when at
-    max capacity it will leak out into the leaky stack.
+    Similar to the LeakyStack in Part B but this time useing a singly linked stack structure.
     """
+
+    class _Node:
+        __slots__ = '_element', '_next'
+
+        def __init__(self, element, next):
+            self._element = element
+            self._next = next
+
     def __init__(self, capacity = 20):
         self._data = [None]*capacity
         self._capacity = capacity
-        self._front = 0
+        self._head = None
         self._size = 0
 
     def __len__(self):
         return self._size
 
-    def isEmpty(self):
+    def is_empty(self):
         return self._size == 0
 
-    def push(self, value):
-        self._data[(self._front + self._size)%len(self._data)] = value
-        if self._size == self._capacity: self._front += 1
-        else: self._size += 1
+    def push(self,e):
+        self._head = self._Node(e, self._head)      #Create and link a new node
+        self._size += 1
+
+    def top(self):
+        if self.is_empty():
+            raise Empty('Stack is empty')
+        return self._head._element                  #top of stack is at the head of list
 
     def pop(self):
-        if self.isEmpty(): raise Empty('Stack is empty')
-        ans = self._data[(self._front + self._size -1)%len(self._data)]
-        self._data[(self._front + self._size -1)%len(self._data)] = None
+        if self.is_empty():
+            raise Empty('Stack is empty')
+        answer = self._head._element
+        self._head = self._head._next                #bypass the former top node
         self._size -= 1
-        return ans
+        return answer
 
 
-stackA = ArrayStack(100)
+stackA = ArrayStack(10)
 
-for i in range(20):
+for i in range(3):
     try:
         stackA.push(i)
         print(stackA.top())
@@ -149,11 +201,17 @@ for i in range(20):
         print(e)
 
 
-undo = LeakyStack(30)
+# undo = LeakyStack(30)
 
-for i in range(100):
-    undo.push(i)
+singlelinkedundo = SinglyLinked_LeakyStack(5)
+
+
+for i in range(10):
+    singlelinkedundo.push(i)
 
 print ('Leakiness check')
-while not undo.isEmpty():
-    print(undo.pop())
+while not singlelinkedundo.is_empty():
+    print(singlelinkedundo.pop())
+
+
+
