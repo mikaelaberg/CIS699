@@ -201,7 +201,7 @@ class CircularQueue:
         Raise Empty exception if the queue is empty
         """
         if self.is_empty():
-            rise Empty('Queue is empty')
+            raise Empty('Queue is empty')
         head = self._tail._next
         return head._element
 

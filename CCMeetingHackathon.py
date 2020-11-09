@@ -1,0 +1,2 @@
+listA = ("None", "United States", "Vietnam", "China", "Germany", "Taiwan", "Russia", "Singapore", "Italy", "Czech Republic", "Denmark", "France", "Australia", "Republic Of Korea", "Netherlands", "Japan" "Canada", "Sweden"," United Kingdom", "Spain", "Brazil", "Bulgaria", "Sweden", "Mexico", "Finland", "Portugal", "Saudi Arabia", "Thailand", "Malaysia", "Azerbaijan", "Estonia")
+print (len(listA))

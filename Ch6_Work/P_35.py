@@ -172,8 +172,9 @@ class SinglyLinked_LeakyStack(ArrayStack):
     def is_empty(self):
         return self._size == 0
 
-    def push(self,e):
+    def push(self, e):
         self._head = self._Node(e, self._head)      #Create and link a new node
+        self._size += 1
 
 
     def top(self):
@@ -209,15 +210,15 @@ for i in range(7):
 # while not undo.isEmpty():
 #     print(undo.pop())
 
-
 # ----------------Part C---------------------------------------
-singlelinkedundo = SinglyLinked_LeakyStack(5)
+singleLinkedUndo = SinglyLinked_LeakyStack(5)
 for i in range(5):
-    singlelinkedundo.push(i)
+    singleLinkedUndo.push(i)
 
 print ('Leakiness check')
-while not singlelinkedundo.is_empty():
-    print(singlelinkedundo.pop())
+while not singleLinkedUndo.is_empty():
+    print(singleLinkedUndo.pop())
+
 
 
 
