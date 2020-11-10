@@ -161,7 +161,7 @@ class SinglyLinked_LeakyStack(ArrayStack):
             self._element = element
             self._next = next
 
-    def __init__(self, capacity = 20):
+    def __init__(self, size = 0):
 
         self._head = None
         self._size = 0
@@ -191,9 +191,9 @@ class SinglyLinked_LeakyStack(ArrayStack):
         return answer
 
 
-stackA = ArrayStack(10)
+stackA = ArrayStack()
 
-for i in range(7):
+for i in range(12):
     try:
         stackA.push(i)
         print(stackA.top())
@@ -202,17 +202,17 @@ for i in range(7):
 
 
 # ----------------Part B---------------------------------------
-# undo = LeakyStack(5)
-# for i in range(5):
-#     undo.push(i)
+undo = LeakyStack()
+for i in range(6):
+    undo.push(i)
 
-# print ('Leakiness check')
-# while not undo.isEmpty():
-#     print(undo.pop())
+print ('Leakiness check')
+while not undo.isEmpty():
+    print(undo.pop())
 
 # ----------------Part C---------------------------------------
-singleLinkedUndo = SinglyLinked_LeakyStack(5)
-for i in range(5):
+singleLinkedUndo = SinglyLinked_LeakyStack()
+for i in range(8):
     singleLinkedUndo.push(i)
 
 print ('Leakiness check')
