@@ -13,7 +13,19 @@
 # 	• Graph Vis/ Networkx/Plotly/igraph/matplotlib tree plot(decision tree in csykit learn)
 # COVID data set to use and compare the SARS strains or other plagues???
 
+# Use the dendrogram to try and find values of clusters of species
+# then once that is obtained use that data for a type of decision tree??
 
 #-----------------PART A----------------------------------------------------
 
+import copy
+from io import StringIO
 
+from Bio import Phylo
+from Bio.Phylo.Applications import PhymlCommandline
+from Bio.Phylo.PAML import codeml
+from Bio.Phylo.PhyloXML import Phylogeny
+
+# %matplotlib inline
+
+tree = Phylo.read("data/simple.dnd", "newick")
