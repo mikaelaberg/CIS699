@@ -28,17 +28,3 @@
 #     https://biopython-tutorial.readthedocs.io/en/latest/notebooks/13%20-%20Phylogenetics%20with%20Bio.Phylo.html
 #     https://joernhees.de/blog/2015/08/26/scipy-hierarchical-clustering-and-dendrogram-tutorial/
 
-
-#-----------------PART A----------------------------------------------------
-
-import copy
-from io import StringIO
-
-from Bio import Phylo
-from Bio.Phylo.Applications import PhymlCommandline
-from Bio.Phylo.PAML import codeml
-from Bio.Phylo.PhyloXML import Phylogeny
-
-# %matplotlib inline
-
-tree = Phylo.read("data/simple.dnd", "newick")
