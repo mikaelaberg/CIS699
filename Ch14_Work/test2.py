@@ -231,7 +231,6 @@ while (walls):
 	for wall in walls:
 		if (wall[0] == rand_wall[0] and wall[1] == rand_wall[1]):
 			walls.remove(wall)
-	
 
 
 # Mark the remaining unvisited cells as walls
