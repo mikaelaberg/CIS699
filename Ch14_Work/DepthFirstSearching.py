@@ -60,3 +60,5 @@ print("Following is DFS from (starting from vertex 2)")
 g.DFS(2)
 
 # This code is contributed by Neelam Yadav
+
+print(Graph())
