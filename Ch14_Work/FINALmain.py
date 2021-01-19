@@ -314,6 +314,22 @@ turtle.done()
 
 """
 Reflection:
-Works, not optimized at all. The main code for searching is not fully dikstras, the node crafting is poor, and the 
+Works, not optimized at all. The main code for searching is not fully dikstras, the node crafting is poor, and the turtle code is the least optimal thing I have ever worked on.
 
+I am not particually happy with how this turned out and maybe one day I will be able to come back and fix this project.
+
+Future fixes:
+
+For the search/set up code
+-Actually use dykstras since we are going from a to b.
+-Random pick of the start and end points
+-Make it so that we can choose any size of a maze (nodes n x n)
+
+For the turtle code:
+-Make some kind of class or definition since there is obviously a better way to graph.
+-Put weights on the lines shown
+-Put lables on the nodes
+-Show the before and after graph in turtle (before skeleton is graphed)
+
+In the end, I do not think I was able to meet all the point discussed in the multipule meetings and from the book description. Its on me and I truly feel bad about it.
 """
