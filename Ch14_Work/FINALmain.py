@@ -11,12 +11,13 @@ class Graph:
 		self.V = vertices #No. of vertices 
 		self.V_org = vertices 
 		self.graph = defaultdict(list) # default dictionary to store graph 
+		self.pathList = []                                                                 #NEW
 
 	# function to add an edge to graph 
 	def addEdge(self,u,v,w): 
 		if w == 1: 
 			self.graph[u].append(v) 
-		else:	 
+		else:     
 			'''split all edges of weight 2 into two 
 			edges of weight 1 each. The intermediate 
 			vertex number is maximum vertex number + 1, 
@@ -30,16 +31,19 @@ class Graph:
 		Path_len = 1
 		if parent[j] == -1 and j < self.V_org : #Base Case : If j is source 
 			print (j)
-			return 0 # when parent[-1] then path length = 0	 
+			self.pathList.append(j)                                                         #NEW
+			return 0 # when parent[-1] then path length = 0   
+		
 		l = self.printPath(parent , parent[j]) 
-
+		
 		#incerement path length 
 		Path_len = l + Path_len 
 
 		# print node only if its less than original node length. 
 		# i.e do not print any new node that has been added later 
 		if j < self.V_org : 
-			print (j) 
+			print (j)
+			self.pathList.append(j)                                                         #NEW
 
 		return Path_len 
 
@@ -113,119 +117,199 @@ print ("Shortest Path between %d and %d is " %(src, dest))
 l = g.findShortestPath(src, dest)
 print ("\nShortest Distance between %d and %d is %d " %(src, dest, l))
 
-
-print(g.findShortestPath(src, dest))
-
-print(type(g.findShortestPath(src, dest)))
-test = []
-for i in l:
-    test.append(i)
-
-print (test)
-
-
-"""
-Psudocode:
-
-for i in range(len(l)):
-	for start @ 0:
-		if next == 1:
-			move arrow 100 px in the +x
-		else next == 4:
-			move arrow 100 px in the -y
-	for new start @ 1:
-		if next == 2:
-			move arrow 100 px in the +x
-		else next == 5:
-			move arrow 100 px in the -y
-	for new start @ 3:
-		next == 7:
-			move arrow 100 px in the -y
-	for new start @ 4:
-		if next == 5:
-			move arrow 100 px in the +x
-		else next == 8:
-			move arrow 100 px in the -y
-	for new start @ 5:
-		if next == 6:
-			move arrow 100 px in the +x
-		else next == 9:
-			move arrow 100 px in the -y
-	for new start @ 6:
-		if next == 7:
-			move arrow 100 px in the +x
-		else next == 10:
-			move arrow 100 px in the -y
-	for new start @ 7:
-		next == 11:
-			move arrow 100 px in the -y
-	for new start @ 8:
-		if next == 9:
-			move arrow 100 px in the +x
-		else next == 12:
-			move arrow 100 px in the -y
-	for new start @ 9:
-		if next == 10:
-			move arrow 100 px in the +x
-		else next == 13:
-			move arrow 100 px in the -y
-	for new start @ 10:
-		if next == 11:
-			move arrow 100 px in the +x
-		else next == 14:
-			move arrow 100 px in the -y
-	for new start @ 11:
-		next == 15:
-			move arrow 100 px in the -y ---- end
-	for new start @ 12:
-		next == 13:
-			move arrow 100 px in the +x
-	for new start @ 13:
-		next == 14:
-			move arrow 100 px in the +x
-	for new start @ 14:
-		next == 15:
-			move arrow 100 px in the +x ----- end
-
-"""
-
-
 ## Graphing
 
-# t = turtle.Turtle()
+t = turtle.Turtle()
 
-# dot_distance = 100
-# width = 4
-# height = 4
+dot_distance = 100
+width = 4
+height = 4
 
-# t.penup()
+t.penup()
 
-# for y in range(height):
-#     for i in range(width):
-#         t.dot()
-#         t.forward(dot_distance)
-#     t.backward(dot_distance * width)
-#     t.right(90)
-#     t.forward(dot_distance)
-#     t.left(90)
+for y in range(height):
+	for i in range(width):
+		t.dot()
+		t.forward(dot_distance)
+	t.backward(dot_distance * width)
+	t.right(90)
+	t.forward(dot_distance)
+	t.left(90)
 
-# turtle.color('black')
-# style = ('Courier', 11, 'italic')
-# turtle.write('0', font=style)
-# turtle.hideturtle()
+t.color('black')
+style = ('Courier', 11, 'italic')
+t.home()
+t.write('0', font=style)
 
-# t.penup()
+t.home()
+t.pendown()
 
+print(g.pathList)                                                               #NEW
+place = g.pathList
+list1 = iter(place)
+next(list1)
 
-# # how to make a circle in turtle
-# # import turtle
-# # count = 0
-# # while(count < 360):
-# # turtle.forward(2)
-# # turtle.left(1)
-# # count = count + 1
-# # print("Finished!")
+nextup = next(list1, 1)
+if nextup == 1:
+	t.forward(100)
+	nextup = next(list1)
+	if nextup == 2:
+		t.forward(100)
+		nextup = next(list1)
+		if nextup == 3:
+			t.forward(100)
+			nextup = next(list1)
+			if nextup == 7:
+				t.right(90)
+				t.forward(100)
+				nextup = next(list1)
+				if nextup == 11:
+					t.forward(100)
+					t.forward(100)
+		elif nextup == 6:
+			t.right(90)
+			t.forward(100)
+			nextup = next(list1)
+			if nextup == 7:
+				t.left(90)
+				t.forward(100)
+				t.right(90)
+				t.forward(200)
+			elif nextup == 10:
+				t.forward(100)
+				nextup = next(list1)
+				if nextup == 11:
+					t.left(90)
+					t.forward(100)
+					t.right(90)
+					t.forward(100)
+				elif nextup == 14:
+					t.forward(100)
+					t.left(90)
+					t.forward(100)
+	elif nextup == 5:
+		t.right(90)
+		t.forward(100)
+		nextup = next(list1)
+		if nextup == 6:
+			t.left(90)
+			t.forward(100)
+			nextup = next(list1)
+			if nextup == 7:
+				t.forward(100)
+				t.right(90)
+				t.forward(200)
+			elif nextup == 10:
+				t.right(90)
+				t.forward(100)
+				nextup = next(list1)
+				if nextup == 11:
+					t.left(90)
+					t.forward(100)
+					t.right(90)
+					t.forward(100)
+				elif nextup == 14:
+					t.forward(100)
+					t.left(90)
+					t.forward(100)
+		elif nextup == 9:
+			t.forward(100)
+			nextup = next(list1)
+			if nextup == 10:
+				t.left(90)
+				t.forward(100)
+				nextup = next(list1)
+				if nextup == 11:
+					t.forward(100)
+					t.right(90)
+					t.forward(100)
+				elif nextup == 14:
+					t.right(90)
+					t.forward(100)
+					t.left(90)
+					t.forward(100)
+			elif nextup == 13:
+				t.forward(100)
+				t.left(90)
+				t.forward(200)
+elif nextup == 4:
+	t.right(90)
+	t.forward(100)
+	nextup = next(list1)
+	if nextup == 5:
+		t.left(90)
+		t.forward(100)
+		nextup = next(list1)
+		if nextup == 6:
+			t.forward(100)
+			nextup = next(list1)
+			if nextup == 7:
+				t.forward(100)
+				t.right(90)
+				t.forward(200)
+			elif nextup == 10:
+				t.right(90)
+				t.forward(100)
+				nextup = next(list1)
+				if nextup == 11:
+					t.left(90)
+					t.forward(100)
+					t.right(90)
+					t.forward(100)
+				elif nextup == 14:
+					t.forward(100)
+					t.left(90)
+					t.forward(100)
+		elif nextup == 9:
+			t.right(90)
+			t.forward(100)
+			nextup = next(list1)
+			if nextup == 10:
+				t.left(90)
+				t.forward(100)
+				nextup = next(list1)
+				if nextup == 11:
+					t.forward(100)
+					t.right(90)
+					t.forward(100)
+				elif nextup == 14:
+					t.right(90)
+					t.forward(100)
+					t.left(90)
+					t.forward(100)
+			elif nextup == 13:
+				t.forward(100)
+				t.left(90)
+				t.forward(200)
+	elif nextup == 8:
+		t.forward(100)
+		nextup = next(list1)
+		if nextup == 9:
+			t.left(90)
+			t.forward(100)
+			nextup = next(list1)
+			if nextup == 10:
+				t.forward(100)
+				nextup = next(list1)
+				if nextup == 11:
+					t.forward(100)
+					t.right(90)
+					t.forward(100)
+				elif nextup == 14:
+					t.right(90)
+					t.forward(100)
+					t.left(90)
+					t.forward(100)
+			elif nextup == 13:
+				t.right(90)
+				t.forward(100)
+				t.left(90)
+				t.forward(200)
+		elif nextup == 12:
+			t.forward(100)
+			t.left(90)
+			t.forward(300)
+turtle.done()
 
-# turtle.done()
 
 
