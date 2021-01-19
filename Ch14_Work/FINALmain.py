@@ -139,7 +139,6 @@ for y in range(height):
 t.color('black')
 style = ('Courier', 11, 'italic')
 t.home()
-t.write('0', font=style)
 
 t.home()
 t.pendown()
@@ -313,3 +312,8 @@ turtle.done()
 
 
 
+"""
+Reflection:
+Works, not optimized at all. The main code for searching is not fully dikstras, the node crafting is poor, and the 
+
+"""
